@@ -16,3 +16,8 @@ mvn spring-boot:run
 ```
 
 The app starts on `http://localhost:8081`.
+
+
+## Architecture
+
+![img.png](img.png)
