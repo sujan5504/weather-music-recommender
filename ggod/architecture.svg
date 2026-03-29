@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">WeatherTune Architecture</title>
+  <desc id="desc">High-level architecture of WeatherTune showing browser, Spring Boot app layers, database, and external APIs.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #1e293b; }
+      .subtitle { font: 500 16px Arial, sans-serif; fill: #475569; }
+      .label { font: 600 15px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 500 13px Arial, sans-serif; fill: #334155; }
+      .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+      .inner { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 10; }
+      .api { fill: #eff6ff; stroke: #60a5fa; }
+      .db { fill: #ecfdf5; stroke: #34d399; }
+      .ext { fill: #fff7ed; stroke: #fb923c; }
+      .arrow { stroke: #475569; stroke-width: 2.5; fill: none; marker-end: url(#arrowHead); }
+      .arrow2 { stroke: #0ea5e9; stroke-width: 2.5; fill: none; marker-end: url(#arrowHeadBlue); }
+      .arrow3 { stroke: #16a34a; stroke-width: 2.5; fill: none; marker-end: url(#arrowHeadGreen); }
+    </style>
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#475569" />
+    </marker>
+    <marker id="arrowHeadBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0ea5e9" />
+    </marker>
+    <marker id="arrowHeadGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <text x="40" y="48" class="title">WeatherTune - Anonymous Recommendation Architecture</text>
+  <text x="40" y="75" class="subtitle">Spring Boot + Thymeleaf + REST + Spotify/OpenWeather integration</text>
+
+  <rect x="40" y="120" width="240" height="170" class="box api"/>
+  <text x="58" y="152" class="label">Web Browser</text>
+  <text x="58" y="178" class="small">`/dashboard` (Thymeleaf)</text>
+  <text x="58" y="201" class="small">`dashboard.js` gets geolocation</text>
+  <text x="58" y="224" class="small">POST `/api/recommendations`</text>
+  <text x="58" y="247" class="small">Renders weather + tracks</text>
+
+  <rect x="330" y="100" width="520" height="520" class="box"/>
+  <text x="350" y="135" class="label">Spring Boot Application (port 8081)</text>
+
+  <rect x="355" y="160" width="470" height="95" class="inner api"/>
+  <text x="372" y="189" class="label">Web Layer</text>
+  <text x="372" y="212" class="small">`ViewController` -> `/` redirects to `/dashboard`</text>
+  <text x="372" y="234" class="small">`RecommendationController` -> anonymous POST API</text>
+
+  <rect x="355" y="275" width="470" height="145" class="inner"/>
+  <text x="372" y="304" class="label">Service Layer</text>
+  <text x="372" y="327" class="small">`RecommendationService` orchestrates weather -> mood -> music</text>
+  <text x="372" y="349" class="small">`WeatherMoodMapper` maps condition to mood + genres</text>
+  <text x="372" y="371" class="small">`SpotifyClient` uses client-credentials token flow</text>
+  <text x="372" y="393" class="small">Fallback to search API if recommendation endpoint fails</text>
+
+  <rect x="355" y="440" width="225" height="155" class="inner db"/>
+  <text x="372" y="469" class="label">Persistence</text>
+  <text x="372" y="492" class="small">H2 (default) or MySQL profile</text>
+  <text x="372" y="514" class="small">`user_profiles`</text>
+  <text x="372" y="536" class="small">`recommendation_history`</text>
+  <text x="372" y="558" class="small">stores anonymous run metadata</text>
+
+  <rect x="600" y="440" width="225" height="155" class="inner"/>
+  <text x="617" y="469" class="label">Config & Security</text>
+  <text x="617" y="492" class="small">`SecurityConfig` allows anonymous</text>
+  <text x="617" y="514" class="small">dashboard + recommendations API</text>
+  <text x="617" y="536" class="small">ENV vars: Spotify + OpenWeather</text>
+
+  <rect x="900" y="170" width="250" height="145" class="box ext"/>
+  <text x="918" y="200" class="label">OpenWeatherMap API</text>
+  <text x="918" y="224" class="small">Current weather by lat/lon</text>
+  <text x="918" y="247" class="small">`app.weather.api-key`</text>
+
+  <rect x="900" y="360" width="250" height="210" class="box ext"/>
+  <text x="918" y="390" class="label">Spotify APIs</text>
+  <text x="918" y="414" class="small">Token: client credentials</text>
+  <text x="918" y="437" class="small">Recommendations endpoint</text>
+  <text x="918" y="460" class="small">Search fallback endpoint</text>
+  <text x="918" y="483" class="small">Uses client id + secret only</text>
+
+  <path d="M280 205 C305 205, 315 205, 350 205" class="arrow"/>
+  <path d="M825 330 C865 330, 870 245, 900 245" class="arrow2"/>
+  <path d="M825 365 C865 365, 870 450, 900 450" class="arrow2"/>
+  <path d="M560 440 C560 430, 560 420, 560 420" class="arrow3"/>
+
+  <text x="290" y="190" class="small">HTTP</text>
+  <text x="835" y="255" class="small">weather call</text>
+  <text x="835" y="445" class="small">music calls</text>
+</svg>
+

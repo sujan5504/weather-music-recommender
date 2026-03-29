@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeatherTune Dashboard</title>
+    <title>WeatherTune - Music Recommendations</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" href="/css/styles.css">
 </head>
 <body>
 <header class="container topbar">
-    <a class="brand" th:href="@{/}">WeatherTune</a>
-    <span>Anonymous mode</span>
+    <a class="brand" th:href="@{/dashboard-public}">WeatherTune</a>
+    <div>
+        <span>Public Dashboard</span>
+    </div>
 </header>
 
 <main class="container">
@@ -27,6 +29,7 @@
     </section>
 </main>
 
-<script th:src="@{/js/dashboard.js}" src="/js/dashboard.js"></script>
+<script th:src="@{/js/dashboard-public.js}" src="/js/dashboard-public.js"></script>
 </body>
 </html>
+

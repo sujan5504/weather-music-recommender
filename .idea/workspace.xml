@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1966b13d-6e44-466b-81e2-071f12291148" name="Changes" comment="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/dhirajnath/Downloads/weather-music-recommender" value="3BdMwtBrjsiAsC81qmwfEgZ0wHu" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Ashok Nath &lt;ashoknath2080@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature-1144" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ashknth&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:ashknth/weather-music-recommender.git&quot;,
+    &quot;accountId&quot;: &quot;88c4448f-33d0-4962-8ace-266feb19369d&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3BdMwtBrjsiAsC81qmwfEgZ0wHu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.WeatherTuneApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dhirajnath/Downloads/weather-music-recommender&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Spring Boot.WeatherTuneApplication">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WeatherMusicRecommenderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="weather-music-recommender" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.weather_music_recommender.WeatherMusicRecommenderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WeatherTuneApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="weather-music-recommender" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.weather_music_recommender.WeatherTuneApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1966b13d-6e44-466b-81e2-071f12291148" name="Changes" comment="" />
+      <created>1774814736058</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1774814736058</updated>
+      <workItem from="1774814738006" duration="2782000" />
+    </task>
+    <task id="LOCAL-00001" summary="Merge pull request #2 from sujan5504/feature-1122&#10;&#10;Feature 1122">
+      <option name="closed" value="true" />
+      <created>1774814833596</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774814833596</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge pull request #2 from sujan5504/feature-1122&#10;&#10;Feature 1122">
+      <option name="closed" value="true" />
+      <created>1774814846084</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774814846084</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage">
+      <option name="closed" value="true" />
+      <created>1774817373420</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774817373420</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage">
+      <option name="closed" value="true" />
+      <created>1774817410062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1774817410062</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage">
+      <option name="closed" value="true" />
+      <created>1774817459245</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1774817459245</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge pull request #2 from sujan5504/feature-1122&#10;&#10;Feature 1122" />
+    <MESSAGE value="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

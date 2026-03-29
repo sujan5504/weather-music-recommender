@@ -13,19 +13,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/css/**", "/js/**", "/error").permitAll()
+                        .requestMatchers("/", "/dashboard", "/dashboard-public", "/api/recommendations", "/api/recommendations/public", "/css/**", "/js/**", "/error").permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-                        .requestMatchers("/api/**", "/dashboard").authenticated()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
-                .oauth2Login(oauth -> oauth
-                        .defaultSuccessUrl("/dashboard", true)
-                )
-                .logout(logout -> logout.logoutSuccessUrl("/").permitAll())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers(
                                 AntPathRequestMatcher.antMatcher("/h2-console/**"),
-                                AntPathRequestMatcher.antMatcher("/api/recommendations")
+                                AntPathRequestMatcher.antMatcher("/api/recommendations"),
+                                AntPathRequestMatcher.antMatcher("/api/recommendations/public")
                         )
                 )
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()));

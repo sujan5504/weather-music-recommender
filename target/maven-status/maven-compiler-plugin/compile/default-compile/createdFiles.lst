@@ -10,9 +10,11 @@ com/example/weather_music_recommender/dto/RecommendationResponse.class
 com/example/weather_music_recommender/WeatherMusicRecommenderApplication.class
 com/example/weather_music_recommender/service/WeatherMoodMapper.class
 com/example/weather_music_recommender/service/SpotifyClient$SpotifyMeResponse.class
+com/example/weather_music_recommender/service/SpotifyClient$SpotifyTokenResponse.class
 com/example/weather_music_recommender/controller/ViewController.class
 com/example/weather_music_recommender/service/WeatherClient$OpenWeatherResponse.class
 com/example/weather_music_recommender/repository/UserProfileRepository.class
+com/example/weather_music_recommender/service/SpotifyClient$SpotifySearchResponse.class
 com/example/weather_music_recommender/repository/RecommendationHistoryRepository.class
 com/example/weather_music_recommender/service/WeatherClient.class
 com/example/weather_music_recommender/service/WeatherClient$WeatherCondition.class
@@ -26,6 +28,7 @@ com/example/weather_music_recommender/model/RecommendationHistory.class
 com/example/weather_music_recommender/dto/WeatherSnapshot.class
 com/example/weather_music_recommender/service/SpotifyClient$Artist.class
 com/example/weather_music_recommender/service/WeatherClient$Main.class
+com/example/weather_music_recommender/service/SpotifyClient$SpotifyTrackPage.class
 com/example/weather_music_recommender/service/SpotifyClient$SpotifyUser.class
 com/example/weather_music_recommender/service/SpotifyClient$Image.class
 com/example/weather_music_recommender/config/SecurityConfig.class
