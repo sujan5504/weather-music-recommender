@@ -1,2 +1,18 @@
 # weather-music-recommender
-A full-stack web application that recommends music based on real-time weather conditions using OpenWeather API and Spotify API.
+
+A Spring Boot backend that will recommend music based on weather conditions.
+
+## Run locally
+
+Requirements:
+- Java 11+
+- Maven 3.8+
+
+From the repository root:
+
+```bash
+mvn clean test
+mvn spring-boot:run
+```
+
+The app starts on `http://localhost:8081`.
