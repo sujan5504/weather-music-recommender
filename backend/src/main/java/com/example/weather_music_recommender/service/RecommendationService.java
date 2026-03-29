@@ -15,6 +15,8 @@ import java.util.List;
 @Service
 public class RecommendationService {
 
+    private static final String ANONYMOUS_USER_ID = "anonymous";
+
     private final WeatherClient weatherClient;
     private final WeatherMoodMapper moodMapper;
     private final SpotifyClient spotifyClient;
@@ -36,18 +38,18 @@ public class RecommendationService {
     }
 
     @Transactional
-    public RecommendationResponse recommend(double latitude, double longitude, String accessToken) {
+    public RecommendationResponse recommend(double latitude, double longitude) {
         WeatherSnapshot weather = weatherClient.getCurrentWeather(latitude, longitude);
         MoodProfile moodProfile = moodMapper.mapToMood(weather.condition());
+        String accessToken = spotifyClient.getClientCredentialsToken();
         List<TrackRecommendation> tracks = spotifyClient.getRecommendations(accessToken, moodProfile.genres(), 12);
 
-        SpotifyClient.SpotifyUser spotifyUser = spotifyClient.getCurrentUser(accessToken);
-        UserProfile profile = userProfileRepository.findBySpotifyUserId(spotifyUser.spotifyUserId())
+        UserProfile profile = userProfileRepository.findBySpotifyUserId(ANONYMOUS_USER_ID)
                 .orElseGet(UserProfile::new);
 
-        profile.setSpotifyUserId(spotifyUser.spotifyUserId());
-        profile.setDisplayName(spotifyUser.displayName());
-        profile.setEmail(spotifyUser.email());
+        profile.setSpotifyUserId(ANONYMOUS_USER_ID);
+        profile.setDisplayName("Guest");
+        profile.setEmail(null);
         profile.setLastLatitude(latitude);
         profile.setLastLongitude(longitude);
         UserProfile savedProfile = userProfileRepository.save(profile);
