@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #f0f4ff, #fdf7ff);
+}
+
+.container {
+    width: min(960px, 92%);
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.brand {
+    color: #273469;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    background: #3d5afe;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn.secondary {
+    background: #6c757d;
+}
+
+.inline-form {
+    display: inline;
+    margin-left: 0.6rem;
+}
+
+.panel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 24px rgba(25, 32, 56, 0.08);
+}
+
+.weather-card {
+    margin-top: 1rem;
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 0.8rem;
+}
+
+.mood {
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.track-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.8rem;
+}
+
+.track-card {
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 0.7rem;
+}
+
+.track-card img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.track-card h3 {
+    margin: 0.5rem 0 0.2rem;
+    font-size: 1rem;
+}
+
+.track-card p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+.track-card .album {
+    color: #5f6b7a;
+}
+
+.hidden {
+    display: none;
+}
