@@ -9,12 +9,7 @@
 <body>
 <header class="container topbar">
     <a class="brand" th:href="@{/}">WeatherTune</a>
-    <div>
-        <span th:text="${principalName}">User</span>
-        <form th:action="@{/logout}" method="post" class="inline-form">
-            <button class="btn secondary" type="submit">Logout</button>
-        </form>
-    </div>
+    <span>Anonymous mode</span>
 </header>
 
 <main class="container">

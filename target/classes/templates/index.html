@@ -9,19 +9,9 @@
 <body>
 <main class="container hero">
     <h1>WeatherTune</h1>
-    <p>Get Spotify recommendations based on your real-time weather.</p>
-
-    <div th:if="${isAuthenticated}">
-        <p>Signed in as <strong th:text="${principalName}">user</strong>.</p>
-        <a class="btn" th:href="@{/dashboard}">Open dashboard</a>
-        <form th:action="@{/logout}" method="post" class="inline-form">
-            <button class="btn secondary" type="submit">Logout</button>
-        </form>
-    </div>
-
-    <div th:unless="${isAuthenticated}">
-        <a class="btn" th:href="@{/oauth2/authorization/spotify}">Login with Spotify</a>
-    </div>
+    <p>Get weather-based Spotify recommendations instantly, no login required.</p>
+    <a class="btn" th:href="@{/dashboard-public}">Get Started</a>
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">or <a th:href="@{/dashboard}">view authenticated dashboard</a></p>
 </main>
 </body>
 </html>

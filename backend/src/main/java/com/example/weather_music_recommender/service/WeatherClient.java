@@ -29,7 +29,7 @@ public class WeatherClient {
     }
 
     public WeatherSnapshot getCurrentWeather(double lat, double lon) {
-        if (weatherApiKey == null || weatherApiKey.isBlank()) {
+        if (weatherApiKey == null || weatherApiKey.isBlank() || "dummy".equalsIgnoreCase(weatherApiKey.trim())) {
             throw new ResponseStatusException(org.springframework.http.HttpStatus.BAD_REQUEST,
                     "Missing OPENWEATHER_API_KEY configuration");
         }
