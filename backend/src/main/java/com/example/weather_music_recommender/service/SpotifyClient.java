@@ -89,6 +89,10 @@ public class SpotifyClient {
     }
 
     public List<TrackRecommendation> getRecommendations(String accessToken, List<String> seedGenres, int limit) {
+        if (accessToken == null || accessToken.isBlank()) {
+            return List.of();
+        }
+
         // Filter and validate genres
         List<String> validGenres = seedGenres.stream()
                 .filter(Objects::nonNull)
@@ -122,10 +126,10 @@ public class SpotifyClient {
                     .body(SpotifyRecommendationResponse.class);
 
             if (response == null || response.tracks() == null) {
-                return List.of();
+                return searchByGenres(accessToken, validGenres, limit);
             }
 
-            return response.tracks().stream().map(track -> {
+            List<TrackRecommendation> tracks = response.tracks().stream().map(track -> {
                 String artist = track.artists() != null && !track.artists().isEmpty() ? track.artists().get(0).name() : "Unknown Artist";
                 String image = null;
                 if (track.album() != null && track.album().images() != null && !track.album().images().isEmpty()) {
@@ -141,6 +145,12 @@ public class SpotifyClient {
                         image
                 );
             }).toList();
+
+            if (!tracks.isEmpty()) {
+                return tracks;
+            }
+
+            return searchByGenres(accessToken, validGenres, limit);
         } catch (Exception e) {
             // Fallback keeps API stable when Spotify /recommendations is unavailable for a token/app.
             System.err.println("Recommendations API error: " + e.getMessage());
@@ -167,6 +177,64 @@ public class SpotifyClient {
                     .body(SpotifySearchResponse.class);
 
             if (response == null || response.tracks() == null || response.tracks().items() == null) {
+                return searchByKeywords(accessToken, genres, limit);
+            }
+
+            List<TrackRecommendation> tracks = response.tracks().items().stream().map(track -> {
+                String artist = track.artists() != null && !track.artists().isEmpty() ? track.artists().get(0).name() : "Unknown Artist";
+                String image = null;
+                if (track.album() != null && track.album().images() != null && !track.album().images().isEmpty()) {
+                    image = track.album().images().get(0).url();
+                }
+                return new TrackRecommendation(
+                        track.id(),
+                        track.name(),
+                        artist,
+                        track.album() != null ? track.album().name() : "",
+                        track.previewUrl(),
+                        track.externalUrls() != null ? track.externalUrls().spotify() : null,
+                        image
+                );
+            }).toList();
+
+            if (!tracks.isEmpty()) {
+                return tracks;
+            }
+
+            return searchByKeywords(accessToken, genres, limit);
+        } catch (Exception e) {
+            System.err.println("Search fallback also failed: " + e.getMessage());
+            return searchByKeywords(accessToken, genres, limit);
+        }
+    }
+
+    private List<TrackRecommendation> searchByKeywords(String accessToken, List<String> genres, int limit) {
+        if (accessToken == null || accessToken.isBlank()) {
+            return List.of();
+        }
+
+        try {
+            String query = String.join(" ", genres);
+            if (query.isBlank()) {
+                query = "chill acoustic";
+            }
+            final String finalQuery = query;
+
+            SpotifySearchResponse response = restClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/search")
+                            .queryParam("q", finalQuery)
+                            .queryParam("type", "track")
+                            .queryParam("limit", Math.min(limit, 50))
+                            .build())
+                    .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken)
+                    .retrieve()
+                    .onStatus(HttpStatusCode::isError, (request, clientResponse) -> {
+                        throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Keyword search failed");
+                    })
+                    .body(SpotifySearchResponse.class);
+
+            if (response == null || response.tracks() == null || response.tracks().items() == null) {
                 return List.of();
             }
 
@@ -187,7 +255,7 @@ public class SpotifyClient {
                 );
             }).toList();
         } catch (Exception e) {
-            System.err.println("Search fallback also failed: " + e.getMessage());
+            System.err.println("Keyword fallback failed: " + e.getMessage());
             return List.of();
         }
     }

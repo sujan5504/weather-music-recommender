@@ -12,11 +12,11 @@ public class WeatherMoodMapper {
 
         return switch (normalized) {
             case "clear" -> new MoodProfile("Sunny Vibes", List.of("pop", "dance", "edm"));
-            case "clouds" -> new MoodProfile("Chill Cloudy", List.of("indie", "acoustic", "folk"));
+            case "clouds" -> new MoodProfile("Chill Cloudy", List.of("indie-pop", "acoustic", "folk"));
             case "rain", "drizzle", "thunderstorm" -> new MoodProfile("Rainy Mood", List.of("jazz", "blues", "soul"));
             case "snow" -> new MoodProfile("Cozy Snow", List.of("classical", "acoustic", "ambient"));
-            case "mist", "fog", "haze", "smoke" -> new MoodProfile("Dreamy Atmosphere", List.of("electronic", "ambient", "indie"));
-            default -> new MoodProfile("Anytime Mix", List.of("pop", "rock", "indie"));
+            case "mist", "fog", "haze", "smoke" -> new MoodProfile("Dreamy Atmosphere", List.of("electronic", "ambient", "indie-pop"));
+            default -> new MoodProfile("Anytime Mix", List.of("pop", "rock", "indie-pop"));
         };
     }
 }
