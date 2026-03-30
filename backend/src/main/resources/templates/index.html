@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTune</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" href="/css/styles.css">
+</head>
+<body>
+<main class="container hero">
+    <h1>WeatherTune</h1>
+    <p>Get weather-based Spotify recommendations instantly, no login required.</p>
+    <a class="btn" th:href="@{/dashboard-public}">Get Started</a>
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">or <a th:href="@{/dashboard}">view authenticated dashboard</a></p>
+</main>
+</body>
+</html>
