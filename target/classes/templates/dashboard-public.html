@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherTune - Music Recommendations</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" href="/css/styles.css">
+</head>
+<body>
+<header class="container topbar">
+    <a class="brand" th:href="@{/dashboard-public}">WeatherTune</a>
+    <div>
+        <span>Public Dashboard</span>
+    </div>
+</header>
+
+<main class="container">
+    <section class="panel">
+        <h2>Weather Snapshot</h2>
+        <p id="status">Click the button to fetch recommendations for your location.</p>
+        <button id="fetchBtn" class="btn" type="button">Use my location</button>
+        <div id="weatherCard" class="weather-card hidden"></div>
+    </section>
+
+    <section class="panel">
+        <h2>Recommended Tracks</h2>
+        <div id="moodLabel" class="mood"></div>
+        <div id="tracks" class="track-grid"></div>
+    </section>
+</main>
+
+<script th:src="@{/js/dashboard-public.js}" src="/js/dashboard-public.js"></script>
+</body>
+</html>
+
