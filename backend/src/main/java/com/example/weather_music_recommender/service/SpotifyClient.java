@@ -15,7 +15,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 public class SpotifyClient {
@@ -122,10 +121,10 @@ public class SpotifyClient {
                     .body(SpotifyRecommendationResponse.class);
 
             if (response == null || response.tracks() == null) {
-                return List.of();
+                return searchByGenres(accessToken, validGenres, limit);
             }
 
-            return response.tracks().stream().map(track -> {
+            List<TrackRecommendation> recommendedTracks = response.tracks().stream().map(track -> {
                 String artist = track.artists() != null && !track.artists().isEmpty() ? track.artists().get(0).name() : "Unknown Artist";
                 String image = null;
                 if (track.album() != null && track.album().images() != null && !track.album().images().isEmpty()) {
@@ -141,6 +140,12 @@ public class SpotifyClient {
                         image
                 );
             }).toList();
+
+            if (recommendedTracks.isEmpty()) {
+                return searchByGenres(accessToken, validGenres, limit);
+            }
+
+            return recommendedTracks;
         } catch (Exception e) {
             // Fallback keeps API stable when Spotify /recommendations is unavailable for a token/app.
             System.err.println("Recommendations API error: " + e.getMessage());
@@ -149,19 +154,35 @@ public class SpotifyClient {
     }
 
     private List<TrackRecommendation> searchByGenres(String accessToken, List<String> genres, int limit) {
+        if (genres == null || genres.isEmpty()) {
+            return List.of();
+        }
+
+        // Start with strict genre tags, then relax to keyword search if Spotify returns no matches.
+        String strictQuery = genres.stream()
+                .map(genre -> "genre:\"" + genre + "\"")
+                .collect(java.util.stream.Collectors.joining(" OR "));
+        List<TrackRecommendation> strictMatches = searchTracks(accessToken, strictQuery, limit);
+        if (!strictMatches.isEmpty()) {
+            return strictMatches;
+        }
+
+        String relaxedQuery = String.join(" ", genres);
+        return searchTracks(accessToken, relaxedQuery, limit);
+    }
+
+    private List<TrackRecommendation> searchTracks(String accessToken, String query, int limit) {
         try {
-            String query = String.join(" OR genre:", genres);
             SpotifySearchResponse response = restClient.get()
                     .uri(uriBuilder -> uriBuilder
                             .path("/search")
-                            .queryParam("q", "genre:" + query)
+                            .queryParam("q", query)
                             .queryParam("type", "track")
                             .queryParam("limit", Math.min(limit, 50))
                             .build())
                     .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken)
                     .retrieve()
                     .onStatus(HttpStatusCode::isError, (request, clientResponse) -> {
-                        // Silent fail - throw exception which will be caught
                         throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Search failed");
                     })
                     .body(SpotifySearchResponse.class);
