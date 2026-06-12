@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1966b13d-6e44-466b-81e2-071f12291148" name="Changes" comment="feat: enable anonymous dashboard and weather-based recommendations&#10;&#10;- remove Spotify user-login requirement from dashboard and recommendations API&#10;- allow anonymous access to / and /dashboard in security configuration&#10;- switch Spotify integration to client-credentials token flow&#10;- add fallback track search when recommendations endpoint is unavailable&#10;- simplify UI by removing login/logout controls from dashboard&#10;- update README to document no-login local usage">
-      <change afterPath="$PROJECT_DIR$/weather.github/workflows/test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +70,7 @@
     "Spring Boot.WeatherTuneApplication.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "main3",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/suzyan/Documents/weather-music-recommender",
